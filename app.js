@@ -3,7 +3,9 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const Wine = require("./modules/Wine");
-require("dotenv").config();
+if (process.env.NODE_ENV == "development") {
+  require("dotenv").config();
+}
 
 const app = express();
 
@@ -73,7 +75,7 @@ app.get("/wines/:wineId", async (req, res) => {
 app.delete("/wines/:wineId", async (req, res) => {
   const wineId = req.params.wineId;
   await Wine.deleteOne({ _id: wineId }).exec(); //
- //console.log(req.params.wineId)
+  //console.log(req.params.wineId)
   res.status(204).end();
 });
 

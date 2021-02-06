@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const Wine = require("./modules/Wine");
-if (process.env.NODE_ENV == "development") {
+if (process.env.NODE_ENV == "development") { // to be deployed in Heroku
   require("dotenv").config();
 }
 
